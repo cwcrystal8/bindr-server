@@ -1,0 +1,2 @@
+class Messages(object):
+    pass
