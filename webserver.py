@@ -5,10 +5,9 @@ from Request import Request
 import json
 
 app = Flask(__name__)
+pending_requests = []
 
 @app.route('/', methods=['POST'])
-
-pending_requests = []
 
 def fulfill_request(request, other_requests, fulfilled_requests):
     for req in other_requests:
