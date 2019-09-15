@@ -7,6 +7,8 @@ def fulfill_request(request, other_requests, fulfilled_requests):
             fulfilled_requests.append(request, req)
             other_requests.remove(req)
             return other_requests, fulfilled_requests
+    other_requests.append(request)
+    return other_requests, fulfilled_requests
 
 
 if __name__ == "__main__":
