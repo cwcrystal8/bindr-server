@@ -8,10 +8,21 @@ class Request(object):
         self.times = times
 
     def __str__(self):
-        return "({0}, {1}, {2}, {3})".format(self.name, self.course, self.proficiency, self.times)
+        return "( {0}, {1}, {2}, {3} )".format(self.name, self.course, self.proficiency, self.str_time())
 
     def __repr__(self):
         return self.__str__()
+
+    def str_time(self):
+        times = self.times
+        mon = "|".join(times["Monday"])
+        tue = "|".join(times["Tuesday"])
+        wed = "|".join(times["Wednesday"])
+        thu = "|".join(times["Thursday"])
+        fri = "|".join(times["Friday"])
+        sat = "|".join(times["Saturday"])
+        sun = "|".join(times["Sunday"])
+        return "M{0};T{1};W{2};TH{3};F{4};SA{5};SU{6}".format(mon, tue, wed, thu, fri, sat, sun)
 
     def get_course(self):
         return self.course
