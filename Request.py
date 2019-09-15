@@ -1,17 +1,17 @@
 import Account
 
 class Request(object):
-    def __init__(self, name, class, proficiency, times):
+    def __init__(self, name, course, proficiency, times):
         self.name = name
-        self.class = class
+        self.course = course
         self.proficiency = proficiency
         self.times = times
 
     def __str__(self):
-        return "({0}, {1}, {2}, {3})".format(self.name, self.class, self.proficiency, self.times)
+        return "({0}, {1}, {2}, {3})".format(self.name, self.course, self.proficiency, self.times)
 
-    def get_class(self):
-        return self.class
+    def get_course(self):
+        return self.course
 
     def get_proficiency(self):
         return self.proficiency
@@ -28,4 +28,4 @@ class Request(object):
         return False
 
     def match(self, other):
-        return self.class == other.get_class() && times_match(self, other.get_times()) and abs(self.proficiency - other.get_proficiency()) < 3
+        return self.course == other.get_course() and times_match(self, other.get_times()) and abs(self.proficiency - other.get_proficiency()) < 3
