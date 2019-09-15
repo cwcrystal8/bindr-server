@@ -10,6 +10,9 @@ class Request(object):
     def __str__(self):
         return "({0}, {1}, {2}, {3})".format(self.name, self.course, self.proficiency, self.times)
 
+    def __repr__(self):
+        return self.__str__()
+
     def get_course(self):
         return self.course
 
@@ -28,4 +31,4 @@ class Request(object):
         return False
 
     def match(self, other):
-        return self.course == other.get_course() and times_match(self, other.get_times()) and abs(self.proficiency - other.get_proficiency()) < 3
+        return self.course == other.get_course() and self.times_match(other.get_times()) and abs(self.proficiency - other.get_proficiency()) < 3
