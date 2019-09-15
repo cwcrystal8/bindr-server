@@ -4,7 +4,7 @@ import Request
 def fulfill_request(request, other_requests, fulfilled_requests):
     for req in other_requests:
         if req.match(request):
-            fulfilled_requests.append(request, req)
+            fulfilled_requests.append((request, req))
             other_requests.remove(req)
             return other_requests, fulfilled_requests
     other_requests.append(request)
